@@ -1,11 +1,10 @@
-
+console.log('test');
 var el = document.createElement('input');
 
 el.setAttribute('search', 'return;');
 
-// tests if browser supports search event. will return 'function' if it does and undefined if it does not
+// tests if browser supports search event. will return 'function' if it does and 'undefined' if it does not
 var canSearch = typeof el.onsearch;
-
 
 $(function() {
 	var $search = $('#search'),
@@ -36,7 +35,7 @@ $(function() {
 	};
 	
 	
-	if (canSearch) {
+	if (canSearch == 'function') {
 		$search.on('search', function() {
 			wikiSearch();
 		});
@@ -45,7 +44,7 @@ $(function() {
 			if (e.which == 13) {
 				wikiSearch();
 			}
-		});	
+		});
 	}
 	
 	// clear search entries when erasing text in input
